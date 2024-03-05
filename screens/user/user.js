@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, Pressable, StyleSheet } from 'react-native'; // Use React Native components
+import { RefreshControl, ScrollView, View, Text, Pressable, StyleSheet } from 'react-native'; // Use React Native components
 import AsyncStorage from '@react-native-async-storage/async-storage'; // Use AsyncStorage for local storage
 import Tolerance from './toleranceLevel';
 
@@ -7,6 +7,15 @@ function User({ token, onLogout, navigation }) {
   const [authenticated, setAuthenticated] = useState(false);
   const [message, setMessage] = useState('');
   const [name, setName] = useState('');
+  const [refreshing, setRefreshing] = useState(false);
+
+
+  const onRefresh = React.useCallback(() => {
+    setRefreshing(true);
+    setTimeout(() => {
+      setRefreshing(false);
+    }, 2000);
+  }, []);
 
   const handleLogout = async () => {
     try {
@@ -59,6 +68,10 @@ function User({ token, onLogout, navigation }) {
 
   return (
     <>
+    <ScrollView 
+    refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} /> }
+    >
     <View>
       {authenticated ? (
         <View>
@@ -88,6 +101,7 @@ function User({ token, onLogout, navigation }) {
     {
       authenticated ? <Tolerance username={name} /> : <Text>OOPS, nothing here</Text>
     }
+    </ScrollView>
 </>
      
    

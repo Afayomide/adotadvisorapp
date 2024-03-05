@@ -1,6 +1,7 @@
 
-import {ScrollView, Pressable, View, Text,StyleSheet, Image } from 'react-native';
+import {RefreshControl, SafeAreaView,ScrollView, Pressable, View, Text,StyleSheet, Image } from 'react-native';
 import Table from './table';
+import React from 'react';
 import { useState, useEffect } from 'react';
 import  {createStackNavigator} from '@react-navigation/stack'
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -8,7 +9,16 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 function Home({navigation}) {
   const Stack = createStackNavigator()
   const [logText , setLogText] = useState("Login")
-  
+  const [refreshing, setRefreshing] = useState(false);
+
+
+  const onRefresh = React.useCallback(() => {
+    setRefreshing(true);
+    setTimeout(() => {
+      setRefreshing(false);
+    }, 2000);
+  }, []);
+
   useEffect(() => {
     const checkAuthentication = async () => {
       storedToken = await AsyncStorage.getItem('adotadvisortoken');
@@ -25,7 +35,10 @@ function Home({navigation}) {
 
   return (
     <>
-    <ScrollView>
+    <ScrollView
+    refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} /> }
+    >
     <View style={styles.homeContainer}>
         <View style={styles.firstSection}>
           <View style={styles.about}>
@@ -105,25 +118,25 @@ const styles = StyleSheet.create({
   },
 
     body: {
-      backgroundColor: '#f3f3f3', // Use constant value for consistency
+      backgroundColor: '#f3f3f3', 
       color: '#444',
-      scrollBehavior: 'smooth', // Ensure smooth scrolling
+      scrollBehavior: 'smooth', 
     },
   
     // Home container
     homeContainer: {
-      margin: 20, // Use consistent units (px or rem)
+      margin: 20, 
       paddingTop: '10vh',
     },
   
     // First section
     firstSection: {
-      height: '80vh', // Use string for unit consistency
+      height: '80vh', 
     },
   
   
     h3: {
-      fontSize: 30, // Use consistent unit (px or rem)
+      fontSize: 30, 
     },
   
     // Highlight element

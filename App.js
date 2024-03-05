@@ -13,6 +13,7 @@ import Table from './screens/home/table.js';
 import User from './screens/user/user.js';
 import { Ionicons } from '@expo/vector-icons';
 import { Dimensions } from 'react-native';
+import Resources from './screens/resources.js';
 
 const Stack = createStackNavigator()
 const Tab = createBottomTabNavigator()
@@ -44,6 +45,9 @@ function MyTabs() {
       else if(route.name === "Home") {
         color = focused ? "#5ec576" : "grey"
         iconName = "home"
+      }else if(route.name === "Resources") {
+        color = focused ? "#5ec576" : "grey"
+        iconName = "gift"
       }
       return <Ionicons name={iconName} size={size} color={color}/>
     }
@@ -72,8 +76,13 @@ function MyTabs() {
     tabBarLabel:({ focused,color })=>(<Text style={{color:focused?"#5ec576":"grey"}}>about</Text>),
     
   }}
-
   />
+    <Tab.Screen name="Resources" component={Resources}
+  options= {{
+    headerShown: false,
+    tabBarLabel:({ focused,color })=>(<Text style={{color:focused?"#5ec576":"grey"}}>Resources</Text>),
+    
+  }}/>
 </Tab.Navigator> 
   )
 }
@@ -94,6 +103,8 @@ function HomeHeader ({name}) {
 }
 
 export default function App() {
+ 
+
   return (
     <NavigationContainer theme={MyTheme}>
     <Stack.Navigator 

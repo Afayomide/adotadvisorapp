@@ -53,10 +53,10 @@ const Table = () => {
         Instruments Weight, Adds Up To 100%({loading ? "fetching": "fetched"} from mongoDB)
       </Text>
       {loading ? (
-        <ActivityIndicator size="large" color="#0000ff" />
+        <ActivityIndicator size="large" color="#90dda2" />
       ) : (
         <ScrollView horizontal={true}>
-        <DataTable>  
+        <DataTable style={styles.table}>  
         <DataTable.Header style={styles.tableHeader}> 
         <DataTable.Title style={styles.tableTitle}>RiskScore</DataTable.Title> 
         <DataTable.Title style={styles.tableTitle}>Nigerian Stocks</DataTable.Title> 
@@ -95,6 +95,9 @@ const styles = StyleSheet.create({
   },
   tableTitle:{
    marginRight: 10,
+  },
+  table:{
+    marginBottom: 20,
   },
   row: {
     flexDirection: 'row',

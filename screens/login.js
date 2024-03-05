@@ -189,8 +189,8 @@ const styles = StyleSheet.create({
   },
   usernameInputContainer: {
     marginBottom: 5,
-    flexDirection: 'row', // Arrange elements horizontally
-    alignItems: 'center', // Align vertically
+    flexDirection: 'row',
+    alignItems: 'center', 
     borderWidth: 1,
     borderColor: "#5ec576",
     borderStyle: "dotted",
@@ -199,15 +199,15 @@ const styles = StyleSheet.create({
   },
   passwordInputContainer: {
    marginBottom:5,
-    flexDirection: 'row', // Arrange elements horizontally
-    alignItems: 'center', // Align vertically
+    flexDirection: 'row',
+    alignItems: 'center',
     borderWidth: 1,
     borderColor: "#5ec576",
     borderStyle: "dotted",
     borderRadius: 5,
   },
   iconContainer: {
-    marginRight: 10, // Add margin between icon and input
+    marginRight: 10, 
   },
   textInput: { 
     width: 300, 
