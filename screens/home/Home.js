@@ -1,5 +1,5 @@
 
-import {RefreshControl, SafeAreaView,ScrollView, Pressable, View, Text,StyleSheet, Image } from 'react-native';
+import {RefreshControl, SafeAreaView,ScrollView, Pressable, View, Text,StyleSheet, Image, StatusBar} from 'react-native';
 import Table from './table';
 import React from 'react';
 import { useState, useEffect } from 'react';

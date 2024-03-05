@@ -33,6 +33,7 @@ function MyTabs() {
    screenOptions={({route}) =>({
     tabBarIcon: ({focused, color,size}) => {
       let iconName;
+      size = 20;
       if(route.name ==="Your Profile") {
          color = focused ? "#5ec576" : "grey"
         iconName = focused ? "person-circle"
@@ -107,6 +108,8 @@ export default function App() {
 
   return (
     <NavigationContainer theme={MyTheme}>
+        <StatusBar backgroundColor={"#5ec576"} barStyle={'dark-content'}/>
+
     <Stack.Navigator 
     initialRouteName='Adot-Advisor'
     screenOptions={({route}) =>({

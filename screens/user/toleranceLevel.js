@@ -10,7 +10,8 @@ const Tolerance = ({ username, token }) => {
   const [loading, setLoading] = useState(false);
   const [warning, setWarning] = useState("")
 
-  const withs = `${username}'s`;
+
+  const withs = `${username}`;
 
   const handleSearch = async (e) => {
     e.preventDefault();
