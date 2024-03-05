@@ -5,7 +5,12 @@
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "750acd1c-1890-47f3-8b1f-f3ff55e57ed7"
+      }
+    }
   },
-  "name": "MyReactNative"
+  "name": "AdotAdvisor"
 }
